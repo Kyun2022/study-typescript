@@ -1,0 +1,41 @@
+{
+  "parser": {
+    "\\.jsx$": "@markuplint/jsx-parser"
+  },
+  "specs": {
+    "\\.jsx$": "@markuplint/react-spec"
+  },
+  "rules": {
+    "attr-duplication": true,
+    "no-boolean-attr-value": false,
+    "ineffective-attr": false,
+    "no-default-value": false,
+    "doctype": "always",
+    "disallowed-element": true,
+    "deprecated-element": true,
+    "class-naming": false,
+    "permitted-contents": true,
+    "case-sensitive-tag-name": false,
+    "use-list": false,
+    "landmark-roles": false,
+    "required-element": true,
+    "no-use-event-handler-attr": false,
+    "character-reference": true,
+    "require-datetime": true,
+    "no-refer-to-non-existent-id": true,
+    "id-duplication": true,
+    "case-sensitive-attr-name": false,
+    "attr-value-quotes": false,
+    "placeholder-label-option": true,
+    "no-hard-code-id": false,
+    "end-tag": false,
+    "label-has-control": false,
+    "invalid-attr": true,
+    "wai-aria": true,
+    "deprecated-attr": true,
+    "require-accessible-name": true,
+    "no-empty-palpable-content": false,
+    "required-attr": true,
+    "required-h1": true
+  }
+}
