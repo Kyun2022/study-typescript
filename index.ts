@@ -1,5 +1,13 @@
-function foo<T>(arg: T) {
-  return { value: arg };
-}
+type Props = {
+  id: string;
+  name: string;
+  age: number;
+};
 
-const foo1 = foo<number[]>()
+type Filter<T, U> = {
+  [K in keyof T]: T[K] extends string ? K : never;
+}[keyof T];
+
+type StringKeys = Filter<Props, string>;
+type NumberKeys = Filter<Props, number>;
+type BooleanKeys = Filter<Props, boolean>;
