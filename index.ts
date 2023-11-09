@@ -1,12 +1,61 @@
-import { type } from "os";
+// type User = {
+//   name: string;
+//   age: number | null;
+//   country?: "US" | "UK" | "JP";
+// };
 
-const foo = (id: string, age: number) => {
-  return 0;
+// ReadOnly
+// type ReadOnlyUser = Readonly<User>;
+
+// const user: ReadOnlyUser = {
+//   name: "しまぶー",
+//   age: 20,
+// };
+
+// user.age = 30;
+
+// Partial
+// type PartialUser = Partial<User>;
+
+// const user: PartialUser = {
+//   name: "しまぶー",
+// };
+
+// Required(パーシャルの反対)
+// type RequiredUser = Required<User>;
+
+// const user: RequiredUser = {
+//   name: "しまぶー",
+//   age: 20,
+//   // country: "JP"
+// };
+
+// type User = {
+//   name: string;
+//   age: number | null;
+//   country?: "US" | "UK" | "JP";
+// };
+
+// // Pick(よく使う：プロパティを抜き出す)
+// type PickUser = Pick<User, "name" | "country">;
+
+// const user: PickUser = {
+//   name: "しまぶー",
+//   age: 20,
+//   country: "JP",
+// };
+
+type User = {
+  name: string;
+  age: number | null;
+  country?: "US" | "UK" | "JP";
 };
 
-// type Return<T> = T extends () => infer U ? U : never;
-type Return<T> = T extends (...args: [any, infer U, ...any[]]) => any
-  ? U
-  : never;
+// Omit(よく使う：不要なプロパティを抜き出す)
+type OmitUser = Omit<User, "age">;
 
-type Foo = Return<typeof foo>;
+const user: OmitUser = {
+  name: "しまぶー",
+  age: 20,
+  country: "JP",
+};
