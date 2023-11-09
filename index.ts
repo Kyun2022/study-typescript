@@ -1,49 +1,102 @@
-// type User = {
-//   name: string;
-//   age: number | null;
-//   country?: "US" | "UK" | "JP";
-// };
+type User1 = {
+  name: string;
+  age: number | null;
+  country?: "US" | "UK" | "JP";
+};
 
-// ReadOnly
-// type ReadOnlyUser = Readonly<User>;
+/* --------------------------------------------
+/* ReadOnly
+/* -------------------------------------------- */
+type ReadOnlyUser = Readonly<User>;
 
-// const user: ReadOnlyUser = {
-//   name: "しまぶー",
-//   age: 20,
-// };
+const user1: ReadOnlyUser = {
+  name: "しまぶー",
+  age: 20,
+};
 
-// user.age = 30;
+user1.age = 30;
 
-// Partial
-// type PartialUser = Partial<User>;
+/* --------------------------------------------
+/* Partial
+/* -------------------------------------------- */
+type PartialUser = Partial<User>;
 
-// const user: PartialUser = {
-//   name: "しまぶー",
-// };
+const user2: PartialUser = {
+  name: "しまぶー",
+};
 
-// Required(パーシャルの反対)
-// type RequiredUser = Required<User>;
+/* --------------------------------------------
+/* Required(パーシャルの反対)
+/* -------------------------------------------- */
+type RequiredUser = Required<User1>;
 
-// const user: RequiredUser = {
-//   name: "しまぶー",
-//   age: 20,
-//   // country: "JP"
-// };
+const user3: RequiredUser = {
+  name: "しまぶー",
+  age: 20,
+  country: "JP",
+};
 
-// type User = {
-//   name: string;
-//   age: number | null;
-//   country?: "US" | "UK" | "JP";
-// };
+/* --------------------------------------------
+/* Pick(よく使う：プロパティを抜き出す)
+/* -------------------------------------------- */
 
-// // Pick(よく使う：プロパティを抜き出す)
-// type PickUser = Pick<User, "name" | "country">;
+type PickUser = Pick<User, "name" | "country">;
 
-// const user: PickUser = {
-//   name: "しまぶー",
-//   age: 20,
-//   country: "JP",
-// };
+const user4: PickUser = {
+  name: "しまぶー",
+  age: 20,
+  country: "JP",
+};
+
+type User2 = {
+  name: string;
+  age: number | null;
+  country?: "US" | "UK" | "JP";
+};
+
+/* --------------------------------------------
+/* Omit(よく使う：不要なプロパティを抜き出す)
+/* -------------------------------------------- */
+type OmitUser = Omit<User2, "age">;
+
+const user5: OmitUser = {
+  name: "しまぶー",
+  age: 20,
+  country: "JP",
+};
+/* --------------------------------------------
+/* Extract(任意の方だけを抽出する)
+/* -------------------------------------------- */
+type Foo1 = Extract<string | number, string>;
+
+/* --------------------------------------------
+/* Exclude(任意の方を除外する)
+/* -------------------------------------------- */
+type bar = Exclude<string | number, string>;
+
+/* --------------------------------------------
+/* NonNullable
+/* -------------------------------------------- */
+type Baz = NonNullable<string | null | undefined>;
+
+/* --------------------------------------------
+/* Record
+/* -------------------------------------------- */
+type Foo3 = Record<"hoge" | "fuga", 1 | 3>;
+
+const obj: Foo3 = {
+  hoge: 1,
+  fuga: 2,
+  aaa: 3,
+};
+/* --------------------------------------------
+/* Parameters(関数の引数の型をTupleとして取得する);
+/* -------------------------------------------- */
+
+function foo(a: string, b: number[], c: boolean) {
+  return;
+}
+type Foo = Parameters<typeof foo>;
 
 type User = {
   name: string;
@@ -51,11 +104,22 @@ type User = {
   country?: "US" | "UK" | "JP";
 };
 
-// Omit(よく使う：不要なプロパティを抜き出す)
-type OmitUser = Omit<User, "age">;
+/* --------------------------------------------
+/* Uppercase(string リテラルタイプを大文字にする)
+/* -------------------------------------------- */
+type Baz1 = Uppercase<"hello">;
 
-const user: OmitUser = {
-  name: "しまぶー",
-  age: 20,
-  country: "JP",
-};
+/* --------------------------------------------
+/* Lowercase(string リテラルタイプを小文字にする)
+/* -------------------------------------------- */
+type Baz2 = Lowercase<"Hello">;
+
+/* --------------------------------------------
+/* Capitalize(string リテラルタイプを先頭の文字を大文字にする)
+/* -------------------------------------------- */
+type Baz3 = Capitalize<"hello">;
+
+/* --------------------------------------------
+/* UnCapitalize(string リテラルタイプを先頭の文字を小文字にする)
+/* -------------------------------------------- */
+type Baz4 = Uncapitalize<"HELLO">;
