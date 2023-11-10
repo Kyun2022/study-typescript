@@ -12,8 +12,7 @@
   "dependencies": {
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18",
-    "type-fest": "^4.7.1"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@markuplint/pug-parser": "^3.11.0",
